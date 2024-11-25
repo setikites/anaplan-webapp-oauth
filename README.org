@@ -1,4 +1,4 @@
-#+TITLE: Anaplan OAuth2 Tutorial
+#+TITLE: Anaplan OAuth2 Authorization Code Grant Tutorial
 #+AUTHOR: Michael B. Moore
 #+EMAIL: setikites@gmail.com
 #+DATE: 2024-11-25

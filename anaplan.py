@@ -1,27 +1,30 @@
 """Based on Google OAuth 2 Tutorial from
 https://requests-oauthlib.readthedocs.io/en/latest/examples/google.html
 """
+
+# Credentials you get from creating a new Authorizaiton Code Grant type OAuth 2.0 client in Anaplan
+# https://help.anaplan.com/create-an-oauth-20-client-0984a799-a667-4e70-8759-a134be32f48c
 import os
 
-# Credentials you get from registering a new application
 client_id = os.environ["CLIENT"]
 client_secret = os.environ["SECRET"]
 redirect_uri = "https://www.anaplan.com"
 
 import json
+
 def pretty_json(j_res):
     return json.dumps(j_res, indent=4)
 
+
 # OAuth endpoints given in the Anaplan API documentation
+# https://anaplanoauth2service.docs.apiary.io/#
 authorization_base_url = "https://us1a.app.anaplan.com/auth/prelogin"
 token_url = "https://us1a.app.anaplan.com/oauth/token"
-scope = ["openid", "email", "offline_access"]
+scope = ["openid", "email", "offline_access"]  # error when including "profile"
 
 from requests_oauthlib import OAuth2Session
 
-anaplan = OAuth2Session(
-    client_id, scope=scope, redirect_uri=redirect_uri
-)
+anaplan = OAuth2Session(client_id, scope=scope, redirect_uri=redirect_uri)
 
 # Redirect user to Anaplan for authorization
 authorization_url, state = anaplan.authorization_url(
