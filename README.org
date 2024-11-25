@@ -1,0 +1,38 @@
+#+TITLE: Anaplan OAuth2 Tutorial
+#+AUTHOR: Michael B. Moore
+#+EMAIL: setikites@gmail.com
+#+DATE: 2024-11-25
+
+** Install
+
+create a virtual environment
+#+begin_src shell :session shell
+python -m venv venv
+#+end_src
+
+activate a virtual environment
+#+begin_src shell :session shell
+. venv/bin/activate
+#+end_src
+
+add the required packages
+requests-oauthlib for managing OAuth2 authentication
+flask for simple web app
+pyopenssl for flask to use https
+#+begin_src shell :session shell
+pip install -r requirements.txt
+#+end_src
+
+
+** Run
+
+run the command line script
+#+begin_src shell :session shell
+python anaplan.py
+#+end_src
+
+
+run the development web app
+#+begin_src shell :session shell
+python main.py
+#+end_src
