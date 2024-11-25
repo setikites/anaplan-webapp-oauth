@@ -12,17 +12,17 @@ user’s profile.
 
 create a virtual environment
 #+begin_src shell :session shell
-python -m venv venv
+  python -m venv venv
 #+end_src
 
 activate a virtual environment (non-Windows)
 #+begin_src shell :session shell
-. venv/bin/activate
+  . venv/bin/activate
 #+end_src
 
 activate a virtual environment (Windows)
 #+begin_src shell :session shell
-venv\Scripts\activate
+  venv\Scripts\activate
 #+end_src
 
 add the required packages
@@ -30,7 +30,7 @@ add the required packages
 - flask :: for simple web app
 - pyopenssl :: for flask to use https
 #+begin_src shell :session shell
-pip install -r requirements.txt
+  pip install -r requirements.txt
 #+end_src
 
 
@@ -43,7 +43,7 @@ try out the command line interactive example below.  The script
 expects to find client_id in shell variable CLIENT and client_secret
 in shell variable SECRET.
 #+begin_src shell :session shell
-python anaplan.py
+  python anaplan.py
 #+end_src
 
 
@@ -62,9 +62,16 @@ Flask runs the development web application at https://127.0.0.1:5000
 After the web app sends you to Anaplan to login, it will deliver code
 and state values to the redirect URL (https://www.anaplan.com).  You
 will need to edit the callback URL to https://127.0.0.1:5000/callback
-for the web application to proceed with authentication.
+for the web application to proceed with authentication.  You can use a
+bookmarklet to make this edit for you
+
+#+CAPTION: bookmarklet
+#+begin_src javascript
+  javascript:(function()
+              {window.location=window.location.toString().replace(/^https:\/\/www\.anaplan\.com\//,'https://127.0.0.1:5000/callback');})()
+#+end_src
 #+begin_src shell :session shell
-python main.py
+  python main.py
 #+end_src
 
 ** References
