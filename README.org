@@ -10,9 +10,14 @@ create a virtual environment
 python -m venv venv
 #+end_src
 
-activate a virtual environment
+activate a virtual environment (non-Windows)
 #+begin_src shell :session shell
 . venv/bin/activate
+#+end_src
+
+activate a virtual environment (Windows)
+#+begin_src shell :session shell
+venv\Scripts\activate
 #+end_src
 
 add the required packages
