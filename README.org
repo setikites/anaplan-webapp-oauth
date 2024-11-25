@@ -4,7 +4,7 @@
 #+DATE: 2024-11-25
 
 ** Install
-The steps below outline how to use the default Authorization Grant
+The steps below outline how to use the OAuth2 Authorization Grant
 Type flow to obtain an access token and fetch a protected resource. In
 this example the provider is Anaplan and the protected resource is the
 user’s profile.
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 ** Run
 
-Setup a nae OAuth Client in the Anaplan Administration Security
+Setup an OAuth Client in the Anaplan Administration Security
 console, (type: Authorization code grant). When you have obtained a
 client_id, client_secret, and registered a callback URL then you can
 try out the command line interactive example below.  The script
@@ -57,6 +57,12 @@ to go.
 This example shows how a simple web application (using the Flask web
 framework) can refresh Anaplan OAuth 2 tokens. It should be trivial to
 transfer to any other web framework and provider.
+
+Flask runs the development web application at https://127.0.0.1:5000
+After the web app sends you to Anaplan to login, it will deliver code
+and state values to the redirect URL (https://www.anaplan.com).  You
+will need to edit the callback URL to https://127.0.0.1:5000/callback
+for the web application to proceed with authentication.
 #+begin_src shell :session shell
 python main.py
 #+end_src
@@ -73,3 +79,6 @@ For additional documentation, see the following
 *** Python
 - https://requests-oauthlib.readthedocs.io/en/latest/index.html
 - https://oauthlib.readthedocs.io/en/latest/oauth2/oauth2.html
+  
+** Inspiration
+https://github.com/qkeddy/anaplan-python-oauth-example
