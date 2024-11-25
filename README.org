@@ -63,7 +63,9 @@ python main.py
 
 ** References
 For additional documentation, see the following
-*** Anaplan API
+*** Anaplan
+- https://help.anaplan.com/oauth-clients-f08ae7da-2224-46ff-a8c6-b7eb75d2b65d
+- https://community.anaplan.com/discussion/156943/anaplans-authorization-code-grant-api-flow-a-seamless-app-to-app-authentication-option
 - https://anaplanoauth2service.docs.apiary.io/#
 - https://anaplanauthentication.docs.apiary.io/#
 - https://anaplan.docs.apiary.io/#/introduction

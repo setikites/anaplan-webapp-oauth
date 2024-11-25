@@ -160,6 +160,7 @@ def validate():
 
     validate_url = "https://auth.anaplan.com/token/validate"
 
+    # must use AnaplanAuthToken for validation.  Bearer will not validate
     headers = {"Authorization": f'AnaplanAuthToken {token["access_token"]}'}
 
     # No OAuth2Session is needed, just a plain GET request
