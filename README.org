@@ -4,6 +4,11 @@
 #+DATE: 2024-11-25
 
 ** Install
+The steps below outline how to use the default Authorization Grant
+Type flow to obtain an access token and fetch a protected resource. In
+this example the provider is Anaplan and the protected resource is the
+user’s profile.
+
 
 create a virtual environment
 #+begin_src shell :session shell
@@ -21,9 +26,9 @@ venv\Scripts\activate
 #+end_src
 
 add the required packages
-- requests-oauthlib for managing OAuth2 authentication
-- flask for simple web app
-- pyopenssl for flask to use https
+- requests-oauthlib :: for managing OAuth2 authentication
+- flask :: for simple web app
+- pyopenssl :: for flask to use https
 #+begin_src shell :session shell
 pip install -r requirements.txt
 #+end_src
@@ -55,3 +60,14 @@ transfer to any other web framework and provider.
 #+begin_src shell :session shell
 python main.py
 #+end_src
+
+** References
+For additional documentation, see the following
+*** Anaplan API
+- https://anaplanoauth2service.docs.apiary.io/#
+- https://anaplanauthentication.docs.apiary.io/#
+- https://anaplan.docs.apiary.io/#/introduction
+
+*** Python
+- https://requests-oauthlib.readthedocs.io/en/latest/index.html
+- https://oauthlib.readthedocs.io/en/latest/oauth2/oauth2.html
