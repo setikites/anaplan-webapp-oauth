@@ -31,13 +31,27 @@ pip install -r requirements.txt
 
 ** Run
 
-run the command line script
+Setup a nae OAuth Client in the Anaplan Administration Security
+console, (type: Authorization code grant). When you have obtained a
+client_id, client_secret, and registered a callback URL then you can
+try out the command line interactive example below.  The script
+expects to find client_id in shell variable CLIENT and client_secret
+in shell variable SECRET.
 #+begin_src shell :session shell
 python anaplan.py
 #+end_src
 
 
-run the development web app
+OAuth 2 providers may allow you to refresh access tokens using refresh
+tokens. Commonly, only clients that authenticate may refresh tokens,
+e.g. web applications but not javascript clients. The provider will
+mention whether they allow token refresh in their API documentation
+and if you see a “refresh_token” in your token response you are good
+to go.
+
+This example shows how a simple web application (using the Flask web
+framework) can refresh Anaplan OAuth 2 tokens. It should be trivial to
+transfer to any other web framework and provider.
 #+begin_src shell :session shell
 python main.py
 #+end_src
