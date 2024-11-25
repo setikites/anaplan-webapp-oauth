@@ -21,9 +21,9 @@ venv\Scripts\activate
 #+end_src
 
 add the required packages
-requests-oauthlib for managing OAuth2 authentication
-flask for simple web app
-pyopenssl for flask to use https
+- requests-oauthlib for managing OAuth2 authentication
+- flask for simple web app
+- pyopenssl for flask to use https
 #+begin_src shell :session shell
 pip install -r requirements.txt
 #+end_src
