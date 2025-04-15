@@ -3,9 +3,16 @@
 #+EMAIL: setikites@gmail.com
 #+DATE: 2024-11-25
 
+Anaplan provides a robust API that can be used to interact with the
+Anaplan platform.  This sample code shows how to authenticate using
+OAuth2 and obtain an access token that will permit use of the Anaplan
+API.
+
+This sample code uses the python package requests-oauthlib
+
 ** Install
-The steps below outline how to use the OAuth2 Authorization Grant
-Type flow to obtain an access token and fetch a protected resource. In
+The steps below outline how to use the OAuth2 Authorization Code Grant
+type flow to obtain an access token and fetch a protected resource. In
 this example the provider is Anaplan and the protected resource is the
 user’s profile.
 

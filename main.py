@@ -90,6 +90,7 @@ def menu():
         <li><a href="/automatic_refresh"> Implicitly refresh the token</a></li>
         <li><a href="/manual_refresh"> Explicitly refresh the token</a></li>
         <li><a href="/validate"> Validate the token</a></li>
+        <li><a href="/logout"> Logout</a></li>
     </ul>
 
     <pre>
@@ -165,6 +166,20 @@ def validate():
 
     # No OAuth2Session is needed, just a plain GET request
     return jsonify(requests.get(validate_url, headers=headers).json())
+
+@app.route ("/logout", methods=["GET"])
+def logout ():
+    """Logout from OAuth."""
+    token = session["oauth_token"]
+
+    logout_url = "https://auth.anaplan.com/token/logout"
+
+    # must use AnaplanAuthToken for validation.  Bearer will not validate
+    headers = {"Authorization": f'AnaplanAuthToken {token["access_token"]}'}
+
+    # No OAuth2Session is needed, just a plain GET request
+    response = requests.post(logout_url, headers=headers)
+    return str (response.status_code)
 
 
 if __name__ == "__main__":
