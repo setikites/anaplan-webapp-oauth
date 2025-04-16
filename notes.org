@@ -96,3 +96,51 @@ For additional documentation, see the following
   
 ** Inspiration
 https://github.com/qkeddy/anaplan-python-oauth-example
+
+
+* token refresh 2024-11-26
+Not sure the current main configuration actually shows tokens being automatically refreshed.
+How to test this?
+
+#+NAME: authorization code grant flow
+#+begin_src ditaa :file auth.png
++----------+
+| Resource |
+|   Owner  |
+|          |
++----------+
+     ^
+     |
+    (B)
++----|-----+          Client Identifier      +---------------+
+|         -+----(A)-- & Redirection URI ---->|               |
+|  User-   |                                 | Authorization |
+|  Agent  -+----(B)-- User authenticates --->|     Server    |
+|          |                                 |               |
+|         -+----(C)-- Authorization Code ---<|               |
++-|----|---+                                 +---------------+
+  |    |                                         ^      v
+ (A)  (C)                                        |      |
+  |    |                                         |      |
+  ^    v                                         |      |
++---------+                                      |      |
+|         |>---(D)-- Authorization Code ---------'      |
+|  Client |          & Redirection URI                  |
+|         |                                             |
+|         |<---(E)----- Access Token -------------------'
++---------+       (w/ Optional Refresh Token)
+  
+#+end_src
+
+#+RESULTS: authorization code grant flow
+[[file:auth.png]]
+
+
+
+* secure token storage 2024-11-26
+do not store sensitive credentials in Flask session (browser cookies)
+store in server database indexed by Anaplan user ID
+1. fetch token
+2. use token to fetch Anaplan user info
+3. extract email from Anaplan user
+4. store token encrypted in database indexed by email
